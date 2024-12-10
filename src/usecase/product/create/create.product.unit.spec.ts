@@ -49,7 +49,8 @@ describe("Unit test create prodcut use case", () => {
         const productRepository = MockRepository();
         const productCreatedUseCase = new CreateProductUseCase(productRepository)
 
-        input.price = 0;
+        input.name = "Product 1";
+        input.price = -1;
        
         await expect(productCreatedUseCase.execute(input)).rejects.toThrow("Price must be greater than zero");
         
